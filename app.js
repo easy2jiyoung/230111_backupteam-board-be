@@ -1,16 +1,21 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const app = express();
+
+app.use(express.json(), cookieParser());
 
 app.get('/host', (req, res) => {
     res.send("host 요청 했음!!");
 });
 
-app.post('/post', (req, res) => {
-    res.send("post 요청 했음!!");
-});
 
 app.get('/home', (req, res) => {
+    console.log(req.cookies);
     res.send("홈 화면!!");
+});
+
+app.post('/register', (req, res) => {
+    res.send("회원가입");
 });
 
 app.post('/login', (req, res) => {
