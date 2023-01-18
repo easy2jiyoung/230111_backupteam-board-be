@@ -108,11 +108,11 @@ app.get('/movies/:id', (req, res) => {
 2. id에 해당하는 movie를 가져온다.
     const views = movies.find(movie => movie.id === Number(id))
 3. 가져온 movie에서 hit_count 1을 더한 객체를 만든다.
-    const plusHitCount = views.find(view => view.hit_count += 1)
+    ++views.hit_count
 4. hit_count 1을 더한 객체를 movies 내에서 기존 객체에 치환한다. (findIndex, splice 사용)
-    const findIndex = movies.findIndex(movieInfo => movieInfo.hit_count === views.hit_count)
-    if(findIndex > -1) {
-        movies.splice(findIndex, 1, plusHitCount)
+    const findIndex = movies.findIndex(movieInfo => movieInfo.id === views.id)
+    if(findIndex >= 0) {
+        movies.splice(findIndex, 1, views)
     }
 5. hit_count 1을 더한 객체를 반환한다.
     res.send(views)
