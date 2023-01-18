@@ -67,16 +67,15 @@ const users = [
 
 const movieUser = movies.map(movie => ({
     ...movie,
-    name : users.find(user => user.id === movie.user_id).name,
-    }
-));
+    name: users.find(user => user.id === movie.user_id).name
+}))
 console.log(movieUser);
 
 // 4-2. id가 1번에 해당하는 user가 작성한 영화 movie_title로만 이루어진 배열을 가져온다.
 
-const UserIdMovies = movies.filter(movie => movie.user_id === 1)
+const user1Movies = movies.filter(movie => movie.user_id === 1)
 .map(movie => movie.movie_title)
-console.log(UserIdMovies)
+console.log(user1Movies)
 
 // 4-3. Looney Tunes: Back in Action라는 movie_title을 가진 게시물의 작성자의 이메일을 가져온다.
 

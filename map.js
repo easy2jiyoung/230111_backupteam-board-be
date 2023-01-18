@@ -27,7 +27,7 @@ const scores = [
 
 /*
 1. score.score 가 40점 미만이면 true, 이상이면 false를 반환하는 함수
-const 빠따ByFilter = score.filter((score) => {
+const 빠따ByFilter = scores.filter((score) => {
     if (score.score < 40) {
         return true
     } else {
@@ -36,26 +36,26 @@ const 빠따ByFilter = score.filter((score) => {
 })
 
 2. 삼항 연산자로 변환
-const 빠따ByFilter = score.filter((score) => {
+const 빠따ByFilter = scores.filter((score) => {
     const result = score.score < 40 ? true : false
     return result
 })
 
 3. 변수 할당없이 연산을 반환
-const 빠따ByFilter = score.filter((score) => {
+const 빠따ByFilter = scores.filter((score) => {
     return score.score < 40 ? true : false
 })
 
 4. 3항 연산자 무의미하게 사용하는 것 제거
-const 빠따ByFilter = score.filter((score) => {
+const 빠따ByFilter = scores.filter((score) => {
     return score.score < 40
 })
 
 5. 화살표 함수 return 생략 가능 조건일 때 생략
-const 빠따ByFilter = score.filter((score) => score.score < 40)
+const 빠따ByFilter = scores.filter((score) => score.score < 40)
 
 6. 화살표 함수 인자 하나일 때 괄호 생략
-const 빠따ByFilter = score.filter(score => score.score < 40)
+const 빠따ByFilter = scores.filter(score => score.score < 40)
 */
 
 // '지영'의 점수 확인
