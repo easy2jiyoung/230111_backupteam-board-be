@@ -91,7 +91,8 @@ app.post('/movies', (req, res) => {
 app.get('/movies/:id', (req, res) => {
     const {id} = req.params
     const views = movies.find(movie => movie.id === Number(id))
-    ++views.hit_count
+    // ++views.hit_count
+    
     // console.log(views.hit_count)
     const findIndex = movies.findIndex(movieInfo => movieInfo.id === views.id)
     // console.log(findIndex)
