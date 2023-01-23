@@ -90,18 +90,26 @@ app.post('/movies', (req, res) => {
 // 영화 상세 조회 API
 app.get('/movies/:id', (req, res) => {
     const {id} = req.params
-    const views = movies.find(movie => movie.id === Number(id))
-    // ++views.hit_count
-    
-    // console.log(views.hit_count)
-    const findIndex = movies.findIndex(movieInfo => movieInfo.id === views.id)
-    // console.log(findIndex)
-    if(findIndex >= 0) {
-        movies.splice(findIndex, 1, views)
+    const movieId = movies.find(movie => movie.id === Number(id))
+    // console.log(movieId)
+    const plusHit_count = {
+        ...movieId,
+        hit_count: movieId.hit_count + 1
     }
+    // console.log(plusHit_count)
+    const findIndex = movies.findIndex(movie => movie.id === Number(id))
+    // console.log(findIndex)
+    movies.splice(findIndex, 1, plusHit_count)
     console.log(movies)
-    res.send(views)
+    res.send("영화조회")
 })
+/*
+1. 사용자가 보내준 id를 가져온다.
+2. id에 해당하는 movie를 가져온다.
+3. 가져온 movie에서 hit_count 1을 더한 객체를 만든다.
+4. hit_count 1을 더한 객체를 movies 내에서 기존 객체에 치환한다. (findIndex, splice 사용)
+5. hit_count 1을 더한 객체를 반환한다.
+*/
 
 /*
 1. 사용자가 보내준 id를 가져온다.
